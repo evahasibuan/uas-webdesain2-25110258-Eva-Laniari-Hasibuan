@@ -1,0 +1,72 @@
+/* Desain Latar Belakang Merah Gradasi Hitam Sesuai Request */
+body {
+    background: linear-gradient(135deg, #8b0000 0%, #000000 100%);
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+}
+
+/* Kustomisasi Navbar */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    border-bottom: 2px solid #ff0000;
+}
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+}
+.nav-link:hover, .nav-item.active .nav-link {
+    color: #ffcc00 !important;
+    font-weight: bold;
+}
+
+/* Kontainer Halaman SPA */
+.page-section {
+    display: none;
+    padding: 80px 0;
+}
+.page-section.active {
+    display: block;
+}
+
+/* Kustomisasi Jumbotron / Hero Section */
+.jumbotron {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #ff0000;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+.border-danger-line {
+    border-top: 1px solid #ff0000;
+}
+
+/* Kustomisasi Card Produk */
+.card {
+    background: rgba(20, 20, 20, 0.85);
+    border: 1px solid #ff3333;
+    color: #fff;
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+}
+
+/* Kustomisasi Nav Tabs Menu */
+.nav-tabs .nav-link {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ff0000;
+}
+.nav-tabs .nav-link.active {
+    background-color: #ff0000 !important;
+    color: #fff !important;
+    border-color: #ff0000;
+}
+
+/* Footer */
+footer {
+    background-color: #000000;
+    border-top: 2px solid #ff0000;
+    padding: 20px 0;
+    margin-top: 40px;
+}
