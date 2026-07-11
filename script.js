@@ -1,65 +1,56 @@
 $(document).ready(function() {
-    // 1. LOGIKA SPA (PINDAH HALAMAN TANPA BROWSER RELOAD) Sesuai Rencana Bab 3.2
-    $('[data-page]').on('click', function(e) {
-        e.preventDefault();
-        var targetPage = $(this).attr('data-page');
 
-        // Sembunyikan semua section, tampilkan kontainer target
-        $('.page-section').removeClass('active');
-        $('#' + targetPage).addClass('active');
-
-        // Sinkronisasi status link aktif pada navbar 
-        $('.navbar-nav .nav-item').removeClass('active');
-        $(`.navbar-nav .nav-link[data-page="${targetPage}"]`).parent().addClass('active');
-
-        // Otomatis tutup hamburger menu mobile setelah link diklik
-        $('.navbar-collapse').collapse('hide');
+    // FITUR LINK INTERAKTIF: Klik "Pilih Menu Ini" otomatis mengisi form & scroll ke bawah
+    $('.btn-select-menu').on('click', function() {
+        // Ambil nama menu dari atribut data-menu di card induk
+        var namaMenu = $(this).closest('.colorful-product-card').attr('data-menu');
         
-        // Scroll kembali ke atas halaman secara halus
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Pasang value ke elemen select form otomatis
+        $('#formTujuan').val(namaMenu);
+        
+        // Tambahkan efek kilatan border ke form sebagai tanda interaksi berhasil
+        $('.luxury-form-container').css('border-color', '#ff4d6d');
+        setTimeout(function() {
+            $('.luxury-form-container').css('border-color', 'rgba(255,77,109,0.2)');
+        }, 1000);
+
+        // Lempar scroll layar langsung menuju section kontak form dengan halus
+        $('html, body').animate({
+            scrollTop: $("#kontak").offset().top - 90
+        }, 800);
     });
 
-    // 2. TRIGGER DETAIL MODAL PRODUK VIA DATA ATTRIBUTE
-    $('.view-detail').on('click', function() {
-        var name = $(this).attr('data-name');
-        var desc = $(this).attr('data-desc');
+    // PROSES INPUT DATA FORM KE WHATSAPP DENGAN SPINNER INTERAKTIF
+    $('#contactForm').on('submit', function(event) {
+        event.preventDefault();
 
-        $('#modalProductName').text(name);
-        $('#modalProductDesc').text(desc);
-        $('#productModal').modal('show');
+        var namaUser = document.getElementById('formNama').value;
+        var menuPilihan = document.getElementById('formTujuan').value;
+        var catatanUser = document.getElementById('formPesan').value;
+
+        // Tampilkan animasi spinner loading
+        document.getElementById('btnText').classList.add('d-none');
+        document.getElementById('btnLoading').classList.remove('d-none');
+        document.getElementById('btnSubmit').disabled = true;
+
+        setTimeout(function() {
+            document.getElementById('btnText').classList.remove('d-none');
+            document.getElementById('btnLoading').classList.add('d-none');
+            document.getElementById('btnSubmit').disabled = false;
+
+            // Nomor WA Utama Kebab Dara Terikat
+            var waAdmin = "6282177845467"; 
+            
+            var teksPesan = `Halo Kebab Dara,\n\n` +
+                            `• Nama Pemesan: ${namaUser}\n` +
+                            `• Varian Menu: ${menuPilihan}\n\n` +
+                            `Catatan & Alamat Kirim:\n"${catatanUser}"`;
+            
+            var textEncoded = encodeURIComponent(teksPesan);
+            
+            window.open(`https://api.whatsapp.com/send?phone=${waAdmin}&text=${textEncoded}`, '_blank');
+            
+            $('#contactForm')[0].reset();
+        }, 1100);
     });
 });
-
-// 3. HANDLER FORM VALIDASI & BUTTON LOADING STATE (KIRIM WHATSAPP)
-function handleFormSubmit(event) {
-    event.preventDefault();
-
-    var nama = document.getElementById('formNama').value;
-    var tujuan = document.getElementById('formTujuan').value;
-    var pesan = document.getElementById('formPesan').value;
-
-    // Memulai Efek Loading State pada Button
-    document.getElementById('btnText').classList.add('d-none');
-    document.getElementById('btnLoading').classList.remove('d-none');
-    document.getElementById('btnSubmit').disabled = true;
-
-    // Simulasi loading pemrosesan pesan selama 1.5 Detik
-    setTimeout(function() {
-        // Mengembalikan Button State semula
-        document.getElementById('btnText').classList.remove('d-none');
-        document.getElementById('btnLoading').classList.add('d-none');
-        document.getElementById('btnSubmit').disabled = false;
-
-        // Hubungkan ke kontak WA
-        var phone = "6282177845467"; 
-        var textEncoded = encodeURIComponent(
-            `Halo Kebab Dara,\n\nSaya: ${nama}\nKeperluan: ${tujuan}\nPesan/Order:\n${pesan}`
-        );
-        
-        // Redirect otomatis membuka tab WhatsApp baru
-        window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${textEncoded}`, '_blank');
-        
-        // Reset form input setelah terkirim
-        document.getElementById('contactForm').reset();
-    }, 1500);
-}
