@@ -1,3 +1,6 @@
+/* ==========================================================================
+   THEME DESIGN: RED BURGUNDY GRADIENT & INTENSE HOVER EFFECTS
+   ========================================================================== */
 html {
     scroll-behavior: smooth;
 }
@@ -12,6 +15,19 @@ body {
     overflow-x: hidden;
 }
 
+/* --- SINGLE PAGE APPLICATION STYLING --- */
+.page-section {
+    display: none; 
+    padding-top: 140px !important; 
+    padding-bottom: 80px !important;
+    min-height: 85vh;
+}
+
+.page-section.active-page {
+    display: block; 
+}
+
+/* --- AMBIENT GLOW EFFECTS --- */
 .red-ambient-glow {
     position: absolute;
     width: 600px;
@@ -24,26 +40,29 @@ body {
     pointer-events: none;
 }
 
+/* --- PALET WARNA --- */
 .text-red { color: #ff4d6d !important; }
 .text-gold { color: #ffb703 !important; }
 .text-green { color: #2ecc71 !important; }
 .text-light-muted { color: #d3d3de !important; }
 .text-muted-dark { color: #8a7e80; }
+.bg-dark-burgundy { background: rgba(20, 2, 4, 0.6); border: 1px solid rgba(255, 255, 255, 0.04); }
 
 .text-gradient-gold {
     background: linear-gradient(135deg, #ffb703, #ffdd6b);
-    background-clip: text;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+/* --- NAVBAR STYLING FIXED --- */
 .elegant-navbar {
     background: rgba(15, 2, 4, 0.95) !important;
+    backdrop-filter: blur(20px);
     border-bottom: 2px solid #ff4d6d !important;
     padding: 15px 0;
     box-shadow: 0 10px 40px rgba(0,0,0,0.8);
 }
-
 .navbar-brand-custom {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
@@ -51,11 +70,7 @@ body {
     color: #ffffff !important;
     text-decoration: none !important;
 }
-
-.brand-gold { 
-    color: #ffb703 !important; 
-    text-shadow: 0 0 12px rgba(255,183,3,0.5); 
-}
+.brand-gold { color: #ffb703 !important; text-shadow: 0 0 12px rgba(255,183,3,0.5); }
 
 .default-nav-links .nav-item {
     margin-left: 12px !important;
@@ -69,9 +84,8 @@ body {
     padding: 8px 4px !important;
     position: relative;
     transition: color 0.3s ease;
-    display: inline-block;
+    cursor: pointer;
 }
-
 .nav-link-custom::after {
     content: '';
     position: absolute;
@@ -82,22 +96,46 @@ body {
     background-color: #ff4d6d;
     transition: width 0.3s ease;
 }
-
-.nav-link-custom:hover {
+.nav-link-custom:hover, .nav-item.active .nav-link-custom {
     color: #ffffff !important;
-    text-decoration: none !important;
 }
-
-.nav-link-custom:hover::after {
+.nav-link-custom:hover::after, .nav-item.active .nav-link-custom::after {
     width: 100%;
 }
 
-.hero-section-luxury {
-    padding-top: 170px;
-    padding-bottom: 60px;
-    min-height: 80vh;
+/* --- FLOATING COMMERCIAL CART --- */
+.floating-cart {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #ff4d6d, #c9184a);
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: white;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 10px 30px rgba(255, 77, 109, 0.5);
+    transition: all 0.3s ease;
+}
+.floating-cart:hover {
+    transform: scale(1.15) rotate(-10deg);
+    box-shadow: 0 15px 40px rgba(255, 77, 109, 0.8);
+}
+.floating-cart .badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    padding: 5px 8px;
 }
 
+/* --- HERO SECTION & HOVER --- */
 .badge-premium-chili {
     background: rgba(255, 77, 109, 0.15);
     color: #ff4d6d;
@@ -106,21 +144,19 @@ body {
     border-radius: 30px;
     font-weight: 700;
     font-size: 0.75rem;
-    letter-spacing: 1px;
-    display: inline-block;
 }
-
 .hero-main-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 3.5rem;
     font-weight: 900;
     line-height: 1.2;
-    color: #ffffff;
 }
-
-.hero-sub-description { 
-    color: #c4c4cf; 
-    font-size: 1.05rem; 
+.main-hero-img {
+    transition: all 0.5s ease;
+}
+.main-hero-img:hover {
+    transform: scale(1.04) rotate(1deg);
+    filter: brightness(1.1);
 }
 
 .btn-luxury-primary {
@@ -131,13 +167,13 @@ body {
     padding: 14px 32px;
     box-shadow: 0 5px 20px rgba(255, 77, 109, 0.4);
     transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
 }
-
 .btn-luxury-primary:hover {
-    transform: translateY(-4px) scale(1.03);
+    transform: translateY(-4px);
     box-shadow: 0 15px 30px rgba(255, 77, 109, 0.6);
 }
-
 .btn-luxury-secondary {
     background: rgba(255, 183, 3, 0.05);
     color: #ffb703 !important;
@@ -146,8 +182,9 @@ body {
     border-radius: 30px;
     padding: 12px 30px;
     transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
 }
-
 .btn-luxury-secondary:hover {
     background: #ffb703;
     color: #000000 !important;
@@ -155,6 +192,7 @@ body {
     box-shadow: 0 10px 25px rgba(255, 183, 3, 0.4);
 }
 
+/* --- VALUE CARDS LIFT HOVER --- */
 .vibrant-value-card {
     background: rgba(35, 5, 10, 0.7) !important;
     border-radius: 24px;
@@ -162,8 +200,8 @@ body {
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.06) !important;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
 }
-
 .card-hover-lift:hover {
     transform: translateY(-10px);
     background: rgba(60, 8, 15, 0.9) !important;
@@ -181,43 +219,42 @@ body {
     margin: 0 auto 22px auto;
     font-size: 1.6rem;
 }
-
 .box-gold { background: rgba(255,183,3,0.15); color: #ffb703; }
 .box-red { background: rgba(255,77,109,0.15); color: #ff4d6d; }
 .box-green { background: rgba(46,204,113,0.15); color: #2ecc71; }
 
+/* --- SLIDESHOW SLIDER OVERLAY --- */
+.carousel-img {
+    height: 380px;
+    object-fit: cover;
+}
+.custom-caption {
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 15px 25px !important;
+    bottom: 30px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* --- CATALOG MARKETING CARDS --- */
 .colorful-product-card {
     background: rgba(30, 4, 8, 0.5) !important;
     border-radius: 28px;
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.08) !important;
-    box-shadow: 0 15px 45px rgba(0,0,0,0.6);
     transition: all 0.4s ease;
+    height: 100%;
 }
-
-.colorful-product-card:hover {
+.card-hover-glow:hover {
     transform: translateY(-8px);
     border-color: #ff4d6d !important;
-    box-shadow: 0 20px 40px rgba(255, 77, 109, 0.3);
+    box-shadow: 0 20px 45px rgba(255, 77, 109, 0.35);
     background: rgba(50, 5, 11, 0.85) !important;
 }
-
-.img-zoom-wrapper { 
-    position: relative; 
-    height: 240px; 
-    overflow: hidden; 
-}
-
-.img-zoom-wrapper img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    transition: transform 0.6s ease; 
-}
-
-.colorful-product-card:hover .img-zoom-wrapper img { 
-    transform: scale(1.1); 
-}
+.img-zoom-wrapper { position: relative; height: 220px; overflow: hidden; }
+.img-zoom-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.colorful-product-card:hover .img-zoom-wrapper img { transform: scale(1.12); }
 
 .badge-price-tag {
     position: absolute;
@@ -227,7 +264,6 @@ body {
     padding: 6px 16px;
     border-radius: 30px;
 }
-
 .price-red { background: #ff4d6d; color: white; }
 .price-gold { background: #ffb703; color: black; }
 .price-green { background: #2ecc71; color: white; }
@@ -240,7 +276,6 @@ body {
     display: inline-block;
     margin-bottom: 12px;
 }
-
 .bg-soft-red { background: rgba(255,77,109,0.15); }
 .bg-soft-gold { background: rgba(255,183,3,0.15); }
 .bg-soft-green { background: rgba(46,204,113,0.15); }
@@ -253,8 +288,8 @@ body {
     padding: 12px;
     border: 2px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
+    width: 100%;
 }
-
 .btn-card-order:hover {
     background: #ffffff;
     color: #4a030a !important;
@@ -262,45 +297,62 @@ body {
     box-shadow: 0 5px 15px rgba(255,255,255,0.4);
 }
 
-.luxury-title-block h2 { 
-    font-family: 'Montserrat', sans-serif; 
-    font-weight: 800; 
-    font-size: 2.5rem; 
-    color: #ffffff; 
+/* --- GALLERY PAGES STYLING --- */
+.gallery-hover-container {
+    position: relative;
+    cursor: pointer;
 }
-
-.color-bar {
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, #ff4d6d, #ffb703);
-    border-radius: 4px;
+.gallery-img {
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
-
-.schedule-box { 
-    border-left: 4px solid #ffb703; 
-    padding: 15px 20px; 
-    background: rgba(255,183,3,0.05); 
+.gallery-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(84, 3, 10, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    color: white;
 }
+.gallery-hover-container:hover .gallery-img { transform: scale(1.1); }
+.gallery-hover-container:hover .gallery-overlay { opacity: 1; }
 
-.map-glow { box-shadow: 0 0 30px rgba(255,77,109,0.25); }
-.map-container-frame { background: rgba(35, 5, 10, 0.7); }
+/* --- HUBUNGI / CONTACT & MAP --- */
+.contact-item-link {
+    transition: all 0.3s ease;
+}
+.contact-item-link:hover {
+    transform: translateX(8px);
+    background: rgba(84, 3, 10, 0.4);
+}
+.link-hover-gold { transition: color 0.2s; }
+.link-hover-gold:hover { color: #ffb703 !important; }
+
+.social-icon-bounce { transition: transform 0.3s; }
+.contact-item-link:hover .social-icon-bounce { transform: scale(1.2) rotate(5deg); }
+
+.map-glow { box-shadow: 0 0 30px rgba(255,77,109,0.25); border-radius: 20px; overflow: hidden; }
+.map-container-frame { background: rgba(35, 5, 10, 0.7); padding: 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); }
 
 .luxury-form-container {
     background: rgba(30, 3, 6, 0.85);
     border-radius: 32px;
     border: 1px solid rgba(255,77,109,0.25);
     box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    padding: 40px;
 }
-
 .input-luxury {
     background-color: rgba(10, 1, 2, 0.9) !important;
     border: 1px solid rgba(255,255,255,0.1) !important;
     color: white !important;
     border-radius: 14px;
     padding: 15px;
-    height: auto;
 }
-
 .input-luxury:focus { 
     border-color: #ff4d6d !important; 
     box-shadow: 0 0 15px rgba(255, 77, 109, 0.4) !important;
@@ -314,14 +366,41 @@ body {
     border-radius: 16px;
     box-shadow: 0 8px 25px rgba(46,204,113,0.3);
     transition: all 0.3s ease;
+    padding: 15px;
+    width: 100%;
 }
-
 .btn-submit-vibrant:hover { 
     transform: translateY(-4px); 
     box-shadow: 0 15px 30px rgba(46,204,113,0.6); 
 }
 
-.footer-luxury { 
-    background: #080001; 
-    border-top: 1px solid rgba(255,255,255,0.05); 
+/* --- TITLES & FOOTER --- */
+.luxury-title-block h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 2.5rem; }
+.color-bar { width: 80px; height: 4px; background: linear-gradient(90deg, #ff4d6d, #ffb703); border-radius: 4px; }
+.footer-luxury { background: #080001; border-top: 1px solid rgba(255,255,255,0.05); padding: 30px 0; }
+
+/* ANIMATION */
+.animate-fire { display: inline-block; animation: flame 1.5s infinite alternate; }
+@keyframes flame {
+    0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255,77,109,0.5)); }
+    100% { transform: scale(1.1); filter: drop-shadow(0 0 8px rgba(255,77,109,1)); }
+}
+
+/* --- MODERN MODAL CART EXTRA STYLING --- */
+.bumbu-modal-style {
+    background: radial-gradient(circle at top, #3a0207 0%, #0d0102 100%) !important;
+    border: 2px solid #ff4d6d !important;
+    border-radius: 24px !important;
+    box-shadow: 0 15px 40px rgba(255, 77, 109, 0.3);
+}
+
+.item-keranjang-row {
+    background: rgba(255, 255, 255, 0.04);
+    border-left: 4px solid #ffb703;
+    transition: all 0.3s ease;
+}
+
+.item-keranjang-row:hover {
+    background: rgba(255, 77, 109, 0.1);
+    transform: translateX(5px);
 }
