@@ -1,3 +1,6 @@
+/* ==========================================================================
+   THEME DESIGN: RED BURGUNDY GRADIENT & INTENSE HOVER EFFECTS
+   ========================================================================== */
 html {
     scroll-behavior: smooth;
 }
@@ -400,4 +403,82 @@ body {
 .item-keranjang-row:hover {
     background: rgba(255, 77, 109, 0.1);
     transform: translateX(5px);
+}
+
+
+/* ==========================================================================
+   PEMBARUAN RESPONSIVITAS MOBILE (Hanya aktif di Layar HP < 768px)
+   ========================================================================== */
+@media (max-width: 767.98px) {
+    /* 1. Pengaturan Spasi Section Utama */
+    .page-section {
+        padding-top: 100px !important; /* Supaya tidak tertutup navbar mobile */
+        padding-bottom: 40px !important;
+    }
+
+    /* 2. Optimasi Tipografi Hero Title di HP */
+    .hero-main-title {
+        font-size: 2.2rem; /* Memperkecil judul besar agar tidak berantakan */
+        line-height: 1.3;
+    }
+    
+    .hero-sub-description {
+        font-size: 0.95rem;
+        margin-bottom: 2rem !important;
+    }
+
+    /* 3. Penyesuaian Tombol Menu Utama di HP */
+    .btn-luxury-primary, .btn-luxury-secondary {
+        width: 100%; /* Mengubah tombol berdampingan menjadi tumpuk penuh lebar */
+        text-align: center;
+        padding: 12px 20px;
+    }
+
+    /* 4. Menyelaraskan Grid Menu Navbar Terbuka */
+    .navbar-collapse {
+        background: rgba(15, 2, 4, 0.98);
+        padding: 15px;
+        border-radius: 12px;
+        margin-top: 10px;
+        border: 1px solid rgba(255, 77, 109, 0.3);
+    }
+
+    .default-nav-links .nav-item {
+        margin: 8px 0 !important;
+        text-align: center;
+    }
+
+    /* 5. Mengecilkan Ukuran Keranjang Melayang di HP */
+    .floating-cart {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.3rem;
+    }
+
+    /* 6. Optimasi Tinggi Slideshow/Carousel di HP */
+    .carousel-img {
+        height: 220px; /* Menghindari gambar terpotong vertikal terlalu jauh */
+    }
+
+    /* 7. Penyesuaian Title Utama Halaman */
+    .luxury-title-block h2 {
+        font-size: 1.8rem;
+    }
+
+    /* 8. Padding Formulir Checkout & Kontak Info Kedai */
+    .luxury-form-container {
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+    
+    .map-container-frame {
+        padding: 20px 15px;
+        border-radius: 20px;
+    }
+    
+    #mapIframe {
+        height: 250px !important; /* Mengurangi tinggi peta agar scrolling halaman lebih mudah */
+    }
 }
