@@ -1,6 +1,12 @@
 /* ==========================================================================
    THEME DESIGN: RED BURGUNDY GRADIENT & INTENSE HOVER EFFECTS
    ========================================================================== */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important; /* Mencegah layar ter-zoom / geser ke samping di HP */
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -12,7 +18,6 @@ body {
     color: #f8f9fa !important;
     font-family: 'Poppins', sans-serif;
     position: relative;
-    overflow-x: hidden;
 }
 
 /* --- SINGLE PAGE APPLICATION STYLING --- */
@@ -32,6 +37,7 @@ body {
     position: absolute;
     width: 600px;
     height: 600px;
+    max-width: 100vw; /* Mencegah elemen glow menyebabkan overflow horizontal */
     background: radial-gradient(circle, rgba(217, 4, 41, 0.18) 0%, rgba(0,0,0,0) 70%);
     top: 10%;
     left: 50%;
@@ -62,6 +68,7 @@ body {
     border-bottom: 2px solid #ff4d6d !important;
     padding: 15px 0;
     box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    width: 100%;
 }
 .navbar-brand-custom {
     font-family: 'Montserrat', sans-serif;
@@ -144,6 +151,7 @@ body {
     border-radius: 30px;
     font-weight: 700;
     font-size: 0.75rem;
+    display: inline-block;
 }
 .hero-main-title {
     font-family: 'Montserrat', sans-serif;
@@ -152,6 +160,8 @@ body {
     line-height: 1.2;
 }
 .main-hero-img {
+    max-width: 100%;
+    height: auto;
     transition: all 0.5s ease;
 }
 .main-hero-img:hover {
@@ -405,36 +415,15 @@ body {
     transform: translateX(5px);
 }
 
-
 /* ==========================================================================
-   PEMBARUAN RESPONSIVITAS MOBILE (Hanya aktif di Layar HP < 768px)
+   PERBAIKAN RESPONSIVITAS MOBILE UNTUK MEMPERBAIKI KETENGAHAN & OVERFLOW
    ========================================================================== */
-@media (max-width: 767.98px) {
-    /* 1. Pengaturan Spasi Section Utama */
-    .page-section {
-        padding-top: 100px !important; /* Supaya tidak tertutup navbar mobile */
-        padding-bottom: 40px !important;
-    }
-
-    /* 2. Optimasi Tipografi Hero Title di HP */
-    .hero-main-title {
-        font-size: 2.2rem; /* Memperkecil judul besar agar tidak berantakan */
-        line-height: 1.3;
+@media (max-width: 991.98px) {
+    /* Navbar fix di mobile */
+    .navbar-brand-custom {
+        font-size: 1.3rem;
     }
     
-    .hero-sub-description {
-        font-size: 0.95rem;
-        margin-bottom: 2rem !important;
-    }
-
-    /* 3. Penyesuaian Tombol Menu Utama di HP */
-    .btn-luxury-primary, .btn-luxury-secondary {
-        width: 100%; /* Mengubah tombol berdampingan menjadi tumpuk penuh lebar */
-        text-align: center;
-        padding: 12px 20px;
-    }
-
-    /* 4. Menyelaraskan Grid Menu Navbar Terbuka */
     .navbar-collapse {
         background: rgba(15, 2, 4, 0.98);
         padding: 15px;
@@ -447,38 +436,89 @@ body {
         margin: 8px 0 !important;
         text-align: center;
     }
+}
 
-    /* 5. Mengecilkan Ukuran Keranjang Melayang di HP */
-    .floating-cart {
-        width: 55px;
-        height: 55px;
-        bottom: 20px;
-        right: 20px;
-        font-size: 1.3rem;
+@media (max-width: 767.98px) {
+    /* 1. Pengaturan Spasi Section Utama */
+    .page-section {
+        padding-top: 90px !important; 
+        padding-bottom: 40px !important;
     }
 
-    /* 6. Optimasi Tinggi Slideshow/Carousel di HP */
-    .carousel-img {
-        height: 220px; /* Menghindari gambar terpotong vertikal terlalu jauh */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
-    /* 7. Penyesuaian Title Utama Halaman */
-    .luxury-title-block h2 {
-        font-size: 1.8rem;
-    }
-
-    /* 8. Padding Formulir Checkout & Kontak Info Kedai */
-    .luxury-form-container {
-        padding: 25px 20px;
-        border-radius: 20px;
+    /* 2. Optimasi Tipografi Hero Title di HP */
+    .hero-main-title {
+        font-size: 2rem;
+        line-height: 1.25;
+        text-align: center;
     }
     
-    .map-container-frame {
+    .hero-sub-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem !important;
+        text-align: center;
+    }
+
+    .badge-premium-chili {
+        display: table;
+        margin: 0 auto 15px auto;
+        font-size: 0.7rem;
+    }
+
+    /* 3. Penyesuaian Tombol Menu Utama di HP */
+    .d-flex.gap-3.flex-wrap {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .btn-luxury-primary, .btn-luxury-secondary {
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+    }
+
+    /* 4. Mencegah Gambar Hero meluap/melebihi layar */
+    .img-hover-frame {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .main-hero-img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    /* 5. Floating Cart di HP */
+    .floating-cart {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.2rem;
+    }
+
+    /* 6. Carousel Slider & Catalog */
+    .carousel-img {
+        height: 220px;
+    }
+
+    .luxury-title-block h2 {
+        font-size: 1.75rem;
+    }
+
+    /* 7. Form & Map */
+    .luxury-form-container, .map-container-frame {
         padding: 20px 15px;
         border-radius: 20px;
     }
     
     #mapIframe {
-        height: 250px !important; /* Mengurangi tinggi peta agar scrolling halaman lebih mudah */
+        height: 230px !important;
     }
 }
