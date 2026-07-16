@@ -2,7 +2,7 @@
 let keranjangBelanja = []; 
 const daftarHarga = {
     "Kebab Original": 15000,
-    "Beef Burger Crispy": 25000,
+    "Kebab Omelet": 15000,
     "Kebab Spesial Daging": 25000,
     "Kebab Spesial Keju": 25000,
     "Kebab Double Cheese": 25000,
