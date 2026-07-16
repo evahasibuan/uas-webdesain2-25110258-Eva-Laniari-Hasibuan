@@ -39,7 +39,7 @@
         </div>
     </nav>
 
-    <!-- FLOATING CART (FITUR KOMERSIAL INTERAKTIF) -->
+    <!-- FLOATING CART -->
     <div class="floating-cart shadow-lg" onclick="bukaModalKeranjang()" title="Lihat Detail Pesanan Anda">
         <i class="fa-solid fa-shopping-bag"></i>
         <span id="cartCount" class="badge bg-red text-white">0</span>
@@ -105,7 +105,7 @@
                 <div class="color-bar mx-auto mt-3"></div>
             </div>
 
-            <!-- SLIDESHOW MENU (SLIDER INTERAKTIF) -->
+            <!-- SLIDESHOW MENU -->
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10">
                     <div id="menuCarousel" class="carousel slide shadow-lg rounded-4 overflow-hidden map-glow" data-bs-ride="carousel">
@@ -164,18 +164,18 @@
                         </div>
                     </div>
                 </div>
-                <!-- Produk 2 (Disesuaikan namanya menjadi Beef Burger Crispy sesuai teks penjelasan) -->
+                <!-- Produk 2 (UPDATE: Kebab Omelet) -->
                 <div class="col-md-4 mb-4">
                     <div class="colorful-product-card card-hover-glow">
                         <div class="img-zoom-wrapper position-relative">
-                            <img src="ko.jpg" alt="Beef Burger Crispy">
+                            <img src="ko.jpg" alt="Kebab Omelet">
                             <span class="badge-price-tag price-gold">Rp 25k</span>
                         </div>
                         <div class="p-4">
                             <span class="category-product-tag bg-soft-gold text-gold">HOT SELLER</span>
-                            <h4 class="fw-bold text-white mb-2">Beef Burger Crispy</h4>
-                            <p class="text-light-muted small mb-4">Roti bun empuk panggang mentega diisi dengan patty daging renyah tebal dan sayuran segar.</p>
-                            <button class="btn-card-order" onclick="pilihMenuOtomatis('Beef Burger Crispy')">Beli & Order <i class="fa-solid fa-shopping-cart ms-2"></i></button>
+                            <h4 class="fw-bold text-white mb-2">Kebab Omelet</h4>
+                            <p class="text-light-muted small mb-4">Kombinasi tortila hangat diisi dengan telur omelet lembut yang tebal, irisan daging premium gurih, dan limpahan saus.</p>
+                            <button class="btn-card-order" onclick="pilihMenuOtomatis('Kebab Omelet')">Beli & Order <i class="fa-solid fa-shopping-cart ms-2"></i></button>
                         </div>
                     </div>
                 </div>
@@ -269,7 +269,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Produk 9 (Disesuaikan namanya menjadi Kebab Double Cheese sesuai teks penjelasan) -->
+                <!-- Produk 9 -->
                 <div class="col-md-4 mb-4">
                     <div class="colorful-product-card card-hover-glow">
                         <div class="img-zoom-wrapper position-relative">
@@ -289,7 +289,7 @@
     </div>
 
     <!-- ==========================================
-         3. PAGE: CERITA KAMI (NEW UPDATE GALLERY)
+         3. PAGE: CERITA KAMI
          ========================================== -->
     <div id="cerita" class="page-section">
         <div class="container">
@@ -321,7 +321,7 @@
                 </div>
             </div>
 
-            <!-- Tambahan Nilai Baru di Cerita Kami -->
+            <!-- Cerita Nilai -->
             <div class="row align-items-center mt-5">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <h3 class="text-gold fw-bold mb-3"><i class="fa-solid fa-history text-red me-2"></i>Bagaimana Kami Memulai?</h3>
@@ -338,9 +338,8 @@
         </div>
     </div>
 
-
     <!-- ==========================================
-         4. PAGE: HUBUNGI & ORDER (KONTAK & ALAMAT TERPADU)
+         4. PAGE: HUBUNGI & ORDER
          ========================================== -->
     <div id="order" class="page-section">
         <div class="container">
@@ -350,7 +349,6 @@
                     <div class="map-container-frame h-100">
                         <h4 class="text-white mb-4 fw-bold"><i class="fa-solid fa-address-book text-red me-2"></i>Saluran Informasi & Kontak</h4>
                         
-                        <!-- List Sosial & Kontak Grid -->
                         <div class="contact-item-link d-flex align-items-center mb-3 p-3 rounded-3 card-hover-glow shadow-sm bg-dark-burgundy">
                             <i class="fa-brands fa-instagram text-red fa-2x me-3 social-icon-bounce"></i>
                             <div>
@@ -377,7 +375,6 @@
 
                         <hr class="border-secondary mb-4">
 
-                        <!-- Alamat dan Peta Terintegrasi -->
                         <h5 class="text-white mb-3 fw-bold"><i class="fa-solid fa-map-marked-alt text-red me-2"></i>Alamat & Kedai Operasional</h5>
                         <p class="text-light-muted small mb-3"><i class="fa-solid fa-location-dot me-2 text-gold"></i>Kebab Dara Group Delima, Jl. Delima, Kec. Tampan, Kota Pekanbaru, Riau.</p>
                         <div class="map-glow mt-2">
@@ -414,7 +411,7 @@
                                 <select id="inputMenu" class="form-select input-luxury" required>
                                     <option value="" disabled selected>-- Pilih Menu / Keperluan --</option>
                                     <option value="Kebab Original">Kebab Original - Rp 15.000</option>
-                                    <option value="Beef Burger Crispy">Beef Burger Crispy - Rp 25.000</option>
+                                    <option value="Kebab Omelet">Kebab Omelet - Rp 25.000</option>
                                     <option value="Kebab Spesial Daging">Kebab Spesial Daging - Rp 25.000</option>
                                     <option value="Kebab Spesial Keju">Kebab Spesial Keju - Rp 25.000</option>
                                     <option value="Kebab Double Cheese">Kebab Double Cheese - Rp 25.000</option>
@@ -440,7 +437,7 @@
         </div>
     </div>
 
-    <!-- MODAL POPUP: DETAIL LIVE OVERLAY KERANJANG BELANJA -->
+    <!-- MODAL POPUP: DETAIL KERANJANG -->
     <div class="modal fade" id="modalKeranjang" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bumbu-modal-style text-white">
@@ -449,11 +446,9 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- List Item -->
                     <div id="listItemKeranjang" class="mb-4">
                         <p class="text-center text-light-muted py-3 m-0">Belum ada item pilihan.</p>
                     </div>
-                    <!-- Total Harga -->
                     <div class="d-flex justify-content-between align-items-center p-3 rounded-3 bg-dark-burgundy border border-secondary mb-3">
                         <span class="fw-bold text-light-muted">Total Estimasi:</span>
                         <span id="totalHargaKeranjang" class="fw-bold text-gold fs-5">Rp 0</span>
@@ -467,9 +462,7 @@
         </div>
     </div>
 
-    <!-- ==========================================
-         FOOTER SECTION
-         ========================================== -->
+    <!-- FOOTER SECTION -->
     <footer class="footer-luxury text-center text-muted-dark">
         <div class="container">
             <p class="mb-1 small text-light-muted">&copy; 2026 Kebab Dara Panam. All Rights Reserved.</p>
