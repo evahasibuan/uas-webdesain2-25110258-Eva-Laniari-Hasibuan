@@ -175,7 +175,7 @@ function kirimKeWhatsApp() {
         return;
     }
 
-    let nomorWA = "6282177845467"; // Nomor WA aktif terdaftar[cite: 11]
+    let nomorWA = "6283829564873"; // Nomor WA aktif terdaftar[cite: 11]
     
     // Susun pesan teks rapi dengan format cetak tebal (*) bawaan WA
     let teksPesan = `Halo Kebab Dara, saya ingin memesan Kuliner Premium:%0A%0A` +
